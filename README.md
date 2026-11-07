@@ -17,7 +17,7 @@ git clone https://github.com/liuli8019-afk/patient-dicom-extractor.git 并按其
 **自己在电脑上运行，也是一条命令 / One command to run it yourself:**
 
 ```bash
-git clone https://github.com/liuli8019-afk/patient-dicom-extractor.git && cd patient-dicom-extractor && pip install -r requirements.txt && python3 scripts/tcloud_dicom.py run --viewer-url "你在浏览器输完密码后地址栏里的查看器URL" --out 下载结果
+git clone https://github.com/liuli8019-afk/patient-dicom-extractor.git && cd patient-dicom-extractor && pip install -r requirements.txt && python3 scripts/patient_dicom.py run --viewer-url "你在浏览器输完密码后地址栏里的查看器URL" --out 下载结果
 ```
 
 （查看器 URL 的获取：打开分享链接 → 输入密码 → 跳转后复制浏览器地址栏里 `TCloudViewer.html?...` 的完整地址。/ To get the viewer URL: open the share link → enter the password → copy the full `TCloudViewer.html?...` address from your browser's address bar after the redirect.）
@@ -57,7 +57,7 @@ git clone https://github.com/liuli8019-afk/patient-dicom-extractor.git && cd pat
 
 - `SOP.md` — 完整技术流程：入口结构、关键接口、签名规则、批量下载、本地封装、验证清单。
 - `SKILL.md` — 给 AI Agent 的执行技能文件。
-- `scripts/tcloud_dicom.py` — 可直接运行的实现（一条 `run` 命令跑通全流程：建清单 → 下载 → 自检 → 封装 → 验证 → 报告）。分享链接的解密密钥不在代码里写死，按 SOP §3 从平台自己的前端 JS 中还原——那本来就是发到你浏览器里的代码。
+- `scripts/patient_dicom.py` — 可直接运行的实现（一条 `run` 命令跑通全流程：建清单 → 下载 → 自检 → 封装 → 验证 → 报告）。分享链接的解密密钥不在代码里写死，按 SOP §3 从平台自己的前端 JS 中还原——那本来就是发到你浏览器里的代码。
 
 ### 免责声明
 
@@ -95,7 +95,7 @@ This tool is for the cloud-imaging share links of designated hospitals, includin
 
 - `SOP.md` — the full technical procedure: entry structure, key interfaces, signing rules, batch download, local packaging, and the verification checklist.
 - `SKILL.md` — an execution skill file for AI agents.
-- `scripts/tcloud_dicom.py` — a runnable implementation: a single `run` command performs inventory → download → sanity check → DICOM packaging → verification → report. The share-link decryption key is not hard-coded; per SOP §3 it is recovered from the platform's own front-end JavaScript — code that is delivered to your browser anyway.
+- `scripts/patient_dicom.py` — a runnable implementation: a single `run` command performs inventory → download → sanity check → DICOM packaging → verification → report. The share-link decryption key is not hard-coded; per SOP §3 it is recovered from the platform's own front-end JavaScript — code that is delivered to your browser anyway.
 
 ### Disclaimer
 
