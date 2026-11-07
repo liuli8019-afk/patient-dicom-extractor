@@ -1,0 +1,10 @@
+# 绝不提交真实影像、链接与会话信息
+下载结果/
+*.dcm
+*.raw
+share_url.txt
+*cookie*
+*session*
+.env
+__pycache__/
+.venv/
