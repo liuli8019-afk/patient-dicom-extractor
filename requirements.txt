@@ -1,0 +1,4 @@
+requests>=2.31
+pydicom>=2.4
+numpy>=1.26
+pycryptodome>=3.20  # 仅分享链接解密步骤需要
