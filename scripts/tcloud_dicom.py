@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Winning TCloud 患者分享版 DICOM 提取（一条命令跑通版）。
+指定医院云影像患者分享版 DICOM 提取（一条命令跑通版，适用范围见 README）。
 
 最简用法（打开分享链接、输入密码后，把浏览器地址栏里的查看器 URL 复制出来）：
 
