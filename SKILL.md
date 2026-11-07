@@ -1,9 +1,9 @@
 ---
-name: winning-tcloud-dicom-extractor
-description: 从 Winning Health TCloud 患者分享链接（如上海胸科医院云影像）提取原始 CT 像素并本地封装为可校验的 Part-10 DICOM。当用户提供云影像分享链接（mIdentify.html）并希望下载/导出 DICOM、且患者分享版没有官方导出时使用。只处理用户本人授权的单个 Study。
+name: patient-dicom-extractor
+description: 从上海胸科医院等指定医院的云影像患者分享链接提取原始 CT 像素并本地封装为可校验的 Part-10 DICOM。当用户提供指定医院的云影像分享链接（mIdentify.html）并希望下载/导出 DICOM、且患者分享版没有官方导出时使用；其他医院的链接先打开核对入口与接口结构再判断是否适用。只处理用户本人授权的单个 Study。
 ---
 
-# Winning TCloud 云影像 DICOM 提取
+# 指定医院云影像 DICOM 提取
 
 你是执行 Agent，不是顾问。按 SOP.md 全文执行：分析 → 建清单 → 小样本验证 → 批量下载 → 本地封装 → 完整性验证 → 交付。不得只给教程不执行；不得把 JPEG 渲染图冒充 DICOM；不得把「部分完成」说成「完整」。
 
