@@ -1,5 +1,5 @@
-# 医院云影像 DICOM 自助提取（患者分享版 · Winning TCloud）
-# Self-Service DICOM Retrieval from Hospital Cloud Imaging (Patient Share Edition · Winning TCloud)
+# 医院云影像 DICOM 自助提取（患者分享版）
+# Self-Service DICOM Retrieval from Hospital Cloud Imaging (Patient Share Edition)
 
 免费开源工具。患者用自己的云影像分享链接，取回检查的原始像素数据并封装成标准 DICOM 文件。
 A free, open-source tool. Patients use their own cloud-imaging share link to retrieve the original pixel data of their examination and package it as standard DICOM files.
@@ -11,13 +11,13 @@ A free, open-source tool. Patients use their own cloud-imaging share link to ret
 **给你的 AI 助手（Agent）一句话即可运行 / One line for your AI agent:**
 
 ```text
-git clone https://github.com/liuli8019-afk/winning-tcloud-dicom-extractor.git 并按其中的 SKILL.md 执行，用我提供的云影像分享链接提取 DICOM，密码由我输入。
+git clone https://github.com/liuli8019-afk/patient-dicom-extractor.git 并按其中的 SKILL.md 执行，用我提供的云影像分享链接提取 DICOM，密码由我输入。
 ```
 
 **自己在电脑上运行，也是一条命令 / One command to run it yourself:**
 
 ```bash
-git clone https://github.com/liuli8019-afk/winning-tcloud-dicom-extractor.git && cd winning-tcloud-dicom-extractor && pip install -r requirements.txt && python3 scripts/tcloud_dicom.py run --viewer-url "你在浏览器输完密码后地址栏里的查看器URL" --out 下载结果
+git clone https://github.com/liuli8019-afk/patient-dicom-extractor.git && cd patient-dicom-extractor && pip install -r requirements.txt && python3 scripts/tcloud_dicom.py run --viewer-url "你在浏览器输完密码后地址栏里的查看器URL" --out 下载结果
 ```
 
 （查看器 URL 的获取：打开分享链接 → 输入密码 → 跳转后复制浏览器地址栏里 `TCloudViewer.html?...` 的完整地址。/ To get the viewer URL: open the share link → enter the password → copy the full `TCloudViewer.html?...` address from your browser's address bar after the redirect.）
@@ -28,7 +28,7 @@ git clone https://github.com/liuli8019-afk/winning-tcloud-dicom-extractor.git &&
 
 ### 这是什么
 
-不少医院的云影像分享链接（如卫宁健康 Winning TCloud 平台，上海胸科医院等医院在用）面向患者只提供在线看图，「下载原始 DICOM」的入口在患者分享版里没有开放。本工具用你自己的分享链接和密码，把平台上的原始像素数据取回本地，封装成标准 DICOM 文件，可以导入 3D Slicer、RadiAnt、Horos 等阅片软件，也可以交给你的医生或用于异地会诊。
+本工具面向上海胸科医院等指定医院的云影像分享链接。这类链接面向患者只提供在线看图，「下载原始 DICOM」的入口在患者分享版里没有开放。本工具用你自己的分享链接和密码，把系统里的原始像素数据取回本地，封装成标准 DICOM 文件，可以导入 3D Slicer、RadiAnt、Horos 等阅片软件，也可以交给你的医生或用于异地会诊。你就诊的医院不在上述范围、或不确定是否适用时，请咨询你的 AI 助手（Agent）：把链接给它，由它打开链接、核对页面与接口结构后现场判断，不要自行套用。
 
 ### 先说清三件事
 
@@ -47,8 +47,10 @@ git clone https://github.com/liuli8019-afk/winning-tcloud-dicom-extractor.git &&
 
 ### 适用范围与限制
 
-- 适用：Winning Health TCloud 患者分享链接（`mIdentify.html?...` 形式）；其他医院只要是同一平台一般同样适用。平台升级后接口可能变化，届时按 `SOP.md` 的思路重新核对即可。
-- 不适用：医护/机构版账号（本身有官方导出，请用官方功能）；其他厂商的云影像平台（原理相通，但接口不同）。
+- 适用：上海胸科医院等指定医院的云影像患者分享链接（`mIdentify.html?...` 形式）。
+- 其他医院：不在上述范围的，请咨询你的 Agent，由它打开链接现场判断，不要默认适用。
+- 不适用：医护/机构版账号（本身有官方导出，请用官方功能）。
+- 系统升级后接口可能变化，届时按 `SOP.md` 的思路重新核对即可。
 - 分享链接有有效期，过期请回医院公众号/小程序重新获取。
 
 ### 文件说明
@@ -59,7 +61,7 @@ git clone https://github.com/liuli8019-afk/winning-tcloud-dicom-extractor.git &&
 
 ### 免责声明
 
-本项目仅供患者取回本人医疗影像数据使用，与卫宁健康及任何医院无隶属关系。使用者应遵守所在医院平台的使用条款及当地法律法规。因使用本项目产生的任何问题由使用者自行承担。如平台方认为本项目不当，请通过 Issue 联系，将及时处理。
+本项目仅供患者取回本人医疗影像数据使用，与任何医院或机构无隶属关系。使用者应遵守所在医院平台的使用条款及当地法律法规。因使用本项目产生的任何问题由使用者自行承担。如平台方认为本项目不当，请通过 Issue 联系，将及时处理。
 
 ---
 
@@ -67,7 +69,7 @@ git clone https://github.com/liuli8019-afk/winning-tcloud-dicom-extractor.git &&
 
 ### What is this?
 
-Many hospitals deliver medical images through cloud viewing links (for example, the Winning Health TCloud platform used by Shanghai Chest Hospital and others). The patient-facing share edition offers online viewing only; an official "download original DICOM" option is not available in that edition. This tool lets you use **your own share link and password** to retrieve the original pixel data stored on the platform and package it locally as standard DICOM files, readable by viewers such as 3D Slicer, RadiAnt, and Horos, and suitable for sharing with your own physicians or for remote consultation.
+This tool is for the cloud-imaging share links of designated hospitals, including Shanghai Chest Hospital. These patient-facing links offer online viewing only; an official "download original DICOM" option is not available in that edition. The tool lets you use **your own share link and password** to retrieve the original pixel data stored in the system and package it locally as standard DICOM files, readable by viewers such as 3D Slicer, RadiAnt, and Horos, and suitable for sharing with your own physicians or for remote consultation. If your hospital is not among the designated ones, or you are unsure whether this applies to you, ask your AI agent: give it your link and let it open the link and check the page and interface structure on the spot. Do not assume it applies.
 
 ### Three things to know first
 
@@ -83,8 +85,10 @@ Many hospitals deliver medical images through cloud viewing links (for example, 
 
 ### Scope and limitations
 
-- **Applies to:** Winning Health TCloud patient share links (of the form `mIdentify.html?...`), including other hospitals running the same platform. If the platform is upgraded, interfaces may change; re-check them following the approach in `SOP.md`.
-- **Not for:** clinician/institution accounts (which have official export — please use it), or other vendors' imaging platforms (similar principles, different interfaces).
+- **Applies to:** patient cloud-imaging share links (of the form `mIdentify.html?...`) of designated hospitals, including Shanghai Chest Hospital.
+- **Other hospitals:** if yours is not listed, ask your AI agent to open your link and check first; do not assume applicability.
+- **Not for:** clinician/institution accounts (which have official export — please use it).
+- If the system is upgraded, interfaces may change; re-check them following the approach in `SOP.md`.
 - Share links expire; if yours has, get a fresh one from the hospital's official app or mini-program.
 
 ### Repository contents
@@ -95,7 +99,7 @@ Many hospitals deliver medical images through cloud viewing links (for example, 
 
 ### Disclaimer
 
-This project is provided solely for patients retrieving their own medical imaging data. It is not affiliated with Winning Health or any hospital. Users are responsible for complying with the platform's terms of use and applicable laws and regulations, and for any consequences of using this project. If the platform operator has concerns about this project, please open an Issue and it will be addressed promptly.
+This project is provided solely for patients retrieving their own medical imaging data. It is not affiliated with any hospital or institution. Users are responsible for complying with the platform's terms of use and applicable laws and regulations, and for any consequences of using this project. If the platform operator has concerns about this project, please open an Issue and it will be addressed promptly.
 
 ## License
 
